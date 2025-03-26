@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes";
+import cookieParser from "cookie-parser";
 
 
 dotenv.config();
@@ -10,8 +11,8 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(helmet());
+app.use(cookieParser());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 
 // Default route

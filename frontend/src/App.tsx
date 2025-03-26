@@ -1,14 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <div className="App bg-red-600">
-        <div className='bg-blue-700'>
-            Hello 
-        </div>
-    </div>
+    <AuthProvider>
+      <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+    </AuthProvider>
   );
 }
 
